@@ -1,9 +1,11 @@
-package Steps;
+package steps;
 
 import Base.BaseUtil;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by Karthik on 10/17/2016.
@@ -20,10 +22,15 @@ public class Hook extends BaseUtil{
     @Before
     public void InitializeTest() {
 
-        System.out.println("Opening the browser : MOCK");
+        System.out.println("Opening the browser : Firefox");
 
-        //Passing a dummy WebDriver instance step info
-        base.StepInfo = "FirefoxDriver";
+        /*System.setProperty("webdriver.firefox.marionette", "D:\\Libs\\geckodriver.exe");
+        base.Driver = new FirefoxDriver();*/
+
+
+        //Chrome driver
+        System.setProperty("webdriver.chrome.driver", "C:\\Libs\\chromedriver.exe");
+        base.Driver = new ChromeDriver();
     }
 
 
